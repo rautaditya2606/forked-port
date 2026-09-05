@@ -203,16 +203,26 @@ const toInsights = (data: RawInitialData): TokscaleInsights => {
 
 export const getTokscaleInsights = unstable_cache(
   async (): Promise<TokscaleInsights | null> => {
-    const res = await fetch(TOKSCALE_URL, {
-      headers: { "User-Agent": "adityaraut.com" },
-    });
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
 
-    if (!res.ok) {
+      const res = await fetch(TOKSCALE_URL, {
+        headers: { "User-Agent": "adityaraut.com" },
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        return null;
+      }
+
+      const data = extractInitialData(await res.text());
+      return data ? toInsights(data) : null;
+    } catch {
       return null;
     }
-
-    const data = extractInitialData(await res.text());
-    return data ? toInsights(data) : null;
   },
   ["tokscale-insights"],
   { revalidate: 86_400 }
