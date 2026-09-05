@@ -204,7 +204,7 @@ const toInsights = (data: RawInitialData): TokscaleInsights => {
 export const getTokscaleInsights = unstable_cache(
   async (): Promise<TokscaleInsights | null> => {
     const res = await fetch(TOKSCALE_URL, {
-      headers: { "User-Agent": "aniketpawar.com" },
+      headers: { "User-Agent": "adityaraut.com" },
     });
 
     if (!res.ok) {

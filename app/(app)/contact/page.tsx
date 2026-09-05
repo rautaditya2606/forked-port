@@ -12,7 +12,7 @@ import { createMetadata } from "@/seo/metadata";
 
 export const metadata = createMetadata({
   canonical: ROUTES.CONTACT,
-  description: "Get in touch with Aniket Pawar.",
+  description: "Get in touch with Aditya Raut.",
   title: "Contact",
 });
 

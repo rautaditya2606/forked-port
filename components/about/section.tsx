@@ -1,4 +1,4 @@
-import { CalendarDaysIcon, MailIcon } from "lucide-react";
+import { MailIcon } from "lucide-react";
 import { Suspense } from "react";
 
 import {
@@ -20,41 +20,43 @@ const AboutSection = () => {
     <IntroSection>
       <div className="prose text-muted-foreground prose-p:my-2 dark:prose-invert max-w-full text-sm leading-6 font-normal">
         <p>
-          I care deeply about visual craft and obsess over building products
-          that feel fast, polished, and human.
+          GenAI Engineer Intern with 9 merged PRs to{" "}
+          <AppLink
+            className="inline-flex items-center gap-1 font-medium text-foreground"
+            href="https://github.com/deepset-ai/haystack"
+            target="_blank"
+            eventName="external_link_click"
+            eventProperties={{
+              context: "hero",
+              link_type: "external",
+              title: "Haystack",
+              url: "https://github.com/deepset-ai/haystack",
+            }}
+          >
+            Haystack
+          </AppLink>{" "}
+          and{" "}
+          <AppLink
+            className="inline-flex items-center gap-1 font-medium text-foreground"
+            href="https://github.com/run-llama/llama_index"
+            target="_blank"
+            eventName="external_link_click"
+            eventProperties={{
+              context: "hero",
+              link_type: "external",
+              title: "LlamaIndex",
+              url: "https://github.com/run-llama/llama_index",
+            }}
+          >
+            LlamaIndex
+          </AppLink>
+          ; building production RAG pipelines, LLM applications, and ML systems.
         </p>
         <p>
-          I run{" "}
-          <AppLink
-            className="inline-flex items-center gap-1 translate-y-0.75"
-            href={LINK.SHADCN_LABS}
-            target="_blank"
-            eventName="external_link_click"
-            eventProperties={{
-              context: "hero",
-              link_type: "external",
-              title: "shadcn labs",
-              url: LINK.SHADCN_LABS,
-            }}
-          >
-            <Icons.shadcnlabs className="size-4" /> Shadcn Labs
-          </AppLink>
-          , an open-source org committed to building technologies that push the
-          limits of{" "}
-          <AppLink
-            href={LINK.SHADCN_UI}
-            target="_blank"
-            eventName="external_link_click"
-            eventProperties={{
-              context: "hero",
-              link_type: "external",
-              title: "shadcn/ui",
-              url: LINK.SHADCN_UI,
-            }}
-          >
-            shadcn/ui
-          </AppLink>{" "}
-          ecosystem.
+          Reduced RAG latency by 40%, token costs by 60%, and ingestion time
+          from 70s to 27s in production. Full ML stack expertise across PyTorch,
+          LightGBM, FastAPI, Docker, ONNX, and TensorRT &mdash; from model
+          training through edge deployment on Jetson Nano.
         </p>
       </div>
       <Callout className="space-y-1 p-1">
@@ -62,32 +64,23 @@ const AboutSection = () => {
           <GitHubContributions contributions={contributions} />
         </Suspense>
         <div className="flex flex-col gap-3 p-2">
-          <p>
-            Interested in working together? Check out my{" "}
-            <AppLink
-              href={LINK.RESUME}
-              target="_blank"
-              className="text-muted-foreground text-sm font-medium inline-flex min-w-17.25"
-              external
-              eventName="resume_click"
-              eventProperties={{ location: "work_together" }}
-            >
-              Resume
-            </AppLink>
+          <p className="text-muted-foreground text-sm">
+            Interested in collaborating or discussing GenAI &amp; ML systems?
+            Feel free to reach out.
           </p>
           <div className="flex flex-row items-center gap-2">
             <Button
               nativeButton={false}
               render={
                 <AppLink
-                  href={LINK.CALENDLY}
+                  href={LINK.LINKEDIN}
                   target="_blank"
                   eventName="schedule_meet_click"
                 />
               }
             >
-              <CalendarDaysIcon />
-              Book an intro call
+              <Icons.linkedin className="size-4" />
+              Connect on LinkedIn
             </Button>
             <Button
               variant="outline"

@@ -1,0 +1,20 @@
+---
+slug: haystack-diagnostics
+---
+
+## Overview
+
+Haystack Diagnostics Engine is a comprehensive observability and diagnostics toolkit designed specifically for Haystack 2.x RAG pipelines. It helps GenAI engineers inspect pipeline graph structures, validate document stores, analyze retrieval failures, and diff debug bundles.
+
+## Key Features
+
+- **Document-Store Validation:** Validated against a live Weaviate corpus of 823 chunks (OpenAI embeddings), surfacing 195 duplicate chunks (23.7%), 14 metadata inconsistencies, and 8 anomalous chunks invisible during normal pipeline execution.
+- **Retrieval-Failure Taxonomy:** Implemented a 6-class retrieval-failure taxonomy using Haystack’s `include_outputs_from` for single-pass retriever and reranker diagnostics.
+- **MCP Integration:** Exposed via Model Context Protocol (MCP) server for seamless inspection by AI coding agents and LLM tools, benchmarked at ~0.95s for 15 concurrent graph-inspection requests.
+- **Structured Debug Bundles:** Automated generation of reproducible debug bundles and visual diffs for rapid triaging of retrieval drift.
+
+## Tech stack
+
+<TechStack
+  items={["Python", "Haystack", "Weaviate", "FastAPI", "Docker", "Git"]}
+/>

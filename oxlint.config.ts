@@ -5,5 +5,10 @@ import react from "ultracite/oxlint/react";
 
 export default defineConfig({
   extends: [core, react, next],
-  ignorePatterns: [...(core.ignorePatterns ?? []), "audio/**"],
+  ignorePatterns: [
+    ...(core.ignorePatterns ?? []),
+    "audio/**",
+    "components/icons.tsx",
+    "registry/__index__.tsx",
+  ],
 });

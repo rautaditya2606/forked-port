@@ -99,6 +99,7 @@ const AppLink = ({
     <Link
       className={linkClassName}
       href={href}
+      prefetch={props.prefetch ?? true}
       onClick={handleClick}
       onPointerDown={handlePointerDown}
       {...props}

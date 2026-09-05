@@ -5,39 +5,15 @@ export const CONTACTS = [
   {
     icon: "github",
     link: {
-      display: "@Aniket-508",
+      display: "@rautaditya2606",
       url: LINK.GITHUB,
     },
     title: "GitHub",
   },
   {
-    icon: "youtube",
-    link: {
-      display: "@aniketpawarbuilds",
-      url: LINK.YOUTUBE,
-    },
-    title: "YouTube",
-  },
-  {
-    icon: "bluesky",
-    link: {
-      display: "@alaymanguy.bsky.social",
-      url: LINK.BLUESKY,
-    },
-    title: "Bluesky",
-  },
-  {
-    icon: "dailydev",
-    link: {
-      display: "@aniket508",
-      url: LINK.DAILYDEV,
-    },
-    title: "daily.dev",
-  },
-  {
     icon: "linkedin",
     link: {
-      display: "@aniketpawar508",
+      display: "Aditya Raut",
       url: LINK.LINKEDIN,
     },
     title: "LinkedIn",
@@ -45,41 +21,17 @@ export const CONTACTS = [
   {
     icon: "x",
     link: {
-      display: "@alaymanguy",
+      display: "@RautAditya2606",
       url: LINK.TWITTER,
     },
-    title: "Twitter",
-  },
-  {
-    icon: "topmate",
-    link: {
-      display: "@aniket_pawar",
-      url: LINK.TOPMATE,
-    },
-    title: "Topmate",
-  },
-  {
-    icon: "peerlist",
-    link: {
-      display: "@aniket_pawar",
-      url: LINK.PEERLIST,
-    },
-    title: "Peerlist",
+    title: "Twitter / X",
   },
   {
     icon: "discord",
     link: {
-      display: "@aniketpawar",
+      display: "@rautaditya2606",
       url: LINK.DISCORD,
     },
     title: "Discord",
-  },
-  {
-    icon: "telegram",
-    link: {
-      display: "@Aniket_508",
-      url: LINK.TELEGRAM,
-    },
-    title: "Telegram",
   },
 ] as const satisfies readonly Contact[];

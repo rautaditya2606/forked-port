@@ -1,0 +1,21 @@
+---
+slug: agricultural-edge-ai-quantization
+---
+
+## Overview
+
+A research project and diagnostic benchmark investigating framework-dependent quantization stability and cross-split leakage in agricultural edge AI deployments.
+
+## Key Features
+
+- **Leakage Elimination:** Audited a 14,154-image wheat disease benchmark using MD5 and perceptual hashing (pHash) deduplication, removing 11.6% cross-split leakage across train/validation/test splits.
+- **Quantization Stability Audit:** Evaluated post-training quantization behavior across MobileNetV3-L, ResNet50, and ConvNeXt-Tiny architectures.
+- **TensorRT Optimization:** Restored MobileNetV3 INT8 accuracy from 31.0% to 82.5% using entropy-calibrated TensorRT execution graphs.
+- **Real-Time Edge Inference:** Developed custom HardSwish and LayerNorm deployment patches for stable FP16 and INT8 inference on NVIDIA Jetson Nano, achieving **54.5 FPS real-time edge throughput**.
+- **Deployment Efficiency Score (DES):** Proposed a novel unified benchmark metric balancing latency, memory footprint, and accuracy preservation.
+
+## Tech stack
+
+<TechStack
+  items={["PyTorch", "TensorRT", "ONNX Runtime", "OpenCV", "Python", "Linux"]}
+/>

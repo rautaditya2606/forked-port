@@ -26,6 +26,9 @@ export const getProjectBySlug = (slug: string): Project | undefined =>
 
 export const getProjectSlugs = (): string[] => PROJECTS.map((p) => p.slug);
 
+export const getInternalProjectSlugs = (): string[] =>
+  PROJECTS.filter((p) => p.source === "personal").map((p) => p.slug);
+
 export const formatProjectDate = (date: Project["date"]): string =>
   `${date.month} ${date.year}`;
 

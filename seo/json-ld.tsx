@@ -55,20 +55,20 @@ const FAQJsonLd = () => {
   const faqs = [
     {
       answer: SITE.DESCRIPTION.LONG,
-      question: "Who is Aniket Pawar?",
+      question: "Who is Aditya Raut?",
     },
     {
       answer:
-        "Specializing in Frontend Engineering and Product Design, building high-fidelity, design-led digital products using React, Next.js, and modern web technologies.",
-      question: "What are Aniket's areas of expertise?",
+        "Specializing in Generative AI, RAG pipelines, ML systems, and edge AI deployment using PyTorch, Haystack, LlamaIndex, ONNX, and TensorRT.",
+      question: "What are Aditya's areas of expertise?",
     },
     {
-      answer: `You can reach out to Aniket via his social profiles on LinkedIn and GitHub, or visit his website at ${SITE.URL}.`,
-      question: "How can I contact Aniket?",
+      answer: `You can reach out to Aditya via his social profiles on LinkedIn and GitHub, or visit his website at ${SITE.URL}.`,
+      question: "How can I contact Aditya?",
     },
     {
-      answer: "Aniket is a software engineer based in India.",
-      question: "Where is Aniket based?",
+      answer: "Aditya is a GenAI and ML systems engineer based in Pune, India.",
+      question: "Where is Aditya based?",
     },
   ];
 
@@ -112,12 +112,6 @@ const contactBreadcrumbs = (current?: BreadcrumbItem): BreadcrumbItem[] => [
 const projectsBreadcrumbs = (current?: BreadcrumbItem): BreadcrumbItem[] => [
   HOME_BREADCRUMB,
   { name: "Projects", path: ROUTES.PROJECTS },
-  ...(current ? [current] : []),
-];
-
-const craftsBreadcrumbs = (current?: BreadcrumbItem): BreadcrumbItem[] => [
-  HOME_BREADCRUMB,
-  { name: "Crafts", path: ROUTES.CRAFTS },
   ...(current ? [current] : []),
 ];
 
@@ -192,7 +186,6 @@ export {
   BreadcrumbJsonLd,
   colophonBreadcrumbs,
   contactBreadcrumbs,
-  craftsBreadcrumbs,
   experiencesBreadcrumbs,
   favoritesBreadcrumbs,
   JsonLdScripts,

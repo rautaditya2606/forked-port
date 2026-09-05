@@ -1,6 +1,6 @@
 import { env } from "@/env";
 
-export const FALLBACK_SITE_ORIGIN = "https://www.aniketpawar.com" as const;
+export const FALLBACK_SITE_ORIGIN = "https://www.adityaraut.com" as const;
 
 export const getBaseUrl = () => {
   if (env.NODE_ENV !== "production") {

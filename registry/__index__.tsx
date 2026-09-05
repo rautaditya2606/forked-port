@@ -8,18 +8,10 @@ import * as React from "react";
 
 export const Index: Record<string, any> = {
   "link-reveal": {
-    categories: ["effects"],
-    component: React.lazy(async () => {
-      const mod = await import("@/registry/components/link-reveal/link-reveal");
-      const exportName =
-        Object.keys(mod).find(
-          (key) =>
-            typeof mod[key] === "function" || typeof mod[key] === "object"
-        ) || "link-reveal";
-      return { default: mod.default || mod[exportName] };
-    }),
+    name: "link-reveal",
     description:
       "Animated link that reveals the website favicon and primary color on hover.",
+    type: "registry:component",
     files: [
       {
         path: "registry/components/link-reveal/types.ts",
@@ -31,12 +23,20 @@ export const Index: Record<string, any> = {
       },
       {
         path: "registry/components/link-reveal/link-reveal.tsx",
-        target: "@/components/link-reveal.tsx",
         type: "registry:component",
+        target: "@/components/link-reveal.tsx",
       },
     ],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/components/link-reveal/link-reveal");
+      const exportName =
+        Object.keys(mod).find(
+          (key) =>
+            typeof mod[key] === "function" || typeof mod[key] === "object"
+        ) || "link-reveal";
+      return { default: mod.default || mod[exportName] };
+    }),
+    categories: ["effects"],
     meta: null,
-    name: "link-reveal",
-    type: "registry:component",
   },
 };

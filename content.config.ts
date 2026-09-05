@@ -24,16 +24,6 @@ const projects = mdxCollection({
   },
 });
 
-const crafts = mdxCollection({
-  dir: "content/crafts",
-  frontmatter: slugFrontmatter,
-  // @ts-expect-error — remark-heading-id plugin tuple typing
-  options: mdxOptions,
-  postprocess: {
-    mdast: true,
-  },
-});
-
 const experiences = mdxCollection({
   dir: "content/experiences",
   frontmatter: slugFrontmatter,
@@ -45,5 +35,5 @@ const experiences = mdxCollection({
 });
 
 export default defineConfig({
-  collections: { crafts, experiences, projects },
+  collections: { experiences, projects },
 });

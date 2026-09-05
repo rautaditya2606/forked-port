@@ -7,7 +7,7 @@ const SiteFooter = () => (
         Last updated · {getLastUpdated()}
       </p>
       <p className="text-muted-foreground text-xs">
-        &copy; {new Date().getFullYear()} <span>Aniket Pawar</span>
+        &copy; {new Date().getFullYear()} <span>Aditya Raut</span>
       </p>
     </div>
   </footer>

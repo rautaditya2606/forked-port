@@ -6,7 +6,7 @@ import type {
   ProjectSourceOption,
 } from "@/types/projects";
 
-export const HOME_FEATURED_PROJECT_COUNT = 4 as const;
+export const HOME_FEATURED_PROJECT_COUNT = 6 as const;
 
 export const PROJECT_SOURCES = [
   {
@@ -15,81 +15,16 @@ export const PROJECT_SOURCES = [
     value: "personal",
   },
   {
-    icon: Icons.shadcnlabs,
-    label: "Shadcn Labs",
-    value: "shadcn-labs",
+    icon: Icons.github,
+    label: "Open Source",
+    value: "open-source",
   },
 ] as const satisfies readonly ProjectSourceOption[];
 
 export const DEFAULT_PROJECT_SOURCE: ProjectSource = "personal";
 
 export const PROJECTS = [
-  {
-    category: "Open Source",
-    date: {
-      month: "January",
-      year: 2026,
-    },
-    description:
-      "A collection of 316 beautifully animated Heroicons for React.",
-    featured: true,
-    links: {
-      github: "https://github.com/Aniket-508/heroicons-animated",
-      website: "https://heroicons-animated.com/",
-    },
-    slug: "heroicons-animated",
-    source: "personal",
-    title: "heroicons-animated",
-  },
-  {
-    category: "Product",
-    date: {
-      month: "Feb",
-      year: 2025,
-    },
-    description:
-      "Publish your Peerlist article effortlessly to multiple platforms, including DEV.to, Hashnode, Medium, Ghost and more.",
-    featured: true,
-    links: {
-      website: "https://peerlistpublish.vercel.app",
-    },
-    slug: "peerlist-publish",
-    source: "personal",
-    title: "Peerlist Publish",
-  },
-  {
-    category: "Product",
-    date: {
-      month: "May",
-      year: 2026,
-    },
-    description:
-      "An AI-powered resume builder with interactive chat, real-time preview, and high-quality PDF export — Cursor for resumes.",
-    links: {
-      github: "https://github.com/Aniket-508/openself",
-      website: "https://openself.vercel.app",
-    },
-    slug: "openself",
-    source: "personal",
-    title: "OpenSelf",
-  },
-  {
-    category: "Tool",
-    date: {
-      month: "April",
-      year: 2026,
-    },
-    description:
-      "A skill and toolkit that lets coding agents diagnose and fix patterns that inflate your Vercel bill on Next.js projects.",
-    featured: true,
-    links: {
-      github: "https://github.com/Aniket-508/vercel-doctor",
-      website: "https://www.vercel-doctor.com",
-    },
-    slug: "vercel-doctor",
-    source: "personal",
-    title: "Vercel Doctor",
-  },
+  // Personal Projects
   {
     category: "Tool",
     date: {
@@ -97,47 +32,46 @@ export const PROJECTS = [
       year: 2026,
     },
     description:
-      "An open Graph image toolkit for generating beautiful, consistent social preview images with Satori and Takumi.",
-    links: {
-      github: "https://github.com/Aniket-508/better-og",
-      website: "https://better-og.vercel.app",
-    },
-    slug: "better-og",
-    source: "personal",
-    title: "Better OG",
-  },
-  {
-    category: "Open Source",
-    date: {
-      month: "May",
-      year: 2026,
-    },
-    description:
-      "A curated list of perks, credits, and programs available to open source maintainers and projects.",
+      "High-performance distributed LLM inference framework partitioning Hugging Face transformers across N heterogeneous GPUs via neural speculative decoding and zero-copy Rust TCP relay (28.10 peak TPS).",
     featured: true,
     links: {
-      github: "https://github.com/Aniket-508/awesome-oss-perks",
-      website: "https://www.ossperks.com",
+      github: "https://github.com/rautaditya2606/Shardflow",
     },
-    slug: "awesome-oss-perks",
+    slug: "shardflow",
     source: "personal",
-    title: "Awesome OSS Perks",
+    title: "ShardFlow",
   },
   {
-    category: "API",
+    category: "Tool",
     date: {
       month: "February",
       year: 2026,
     },
     description:
-      "Free, open-source API delivering curated quotes from India's most successful entrepreneurs.",
+      "Observability and diagnostics engine for Haystack 2.x RAG pipelines with document-store validation, retrieval-failure analysis, and MCP support.",
+    featured: true,
     links: {
-      github: "https://github.com/Aniket-508/indian-quotes-api",
-      website: "https://indian-quotes-api.vercel.app/",
+      github: "https://github.com/rautaditya2606/haystack-diagnostics",
     },
-    slug: "indian-quotes-api",
+    slug: "haystack-diagnostics",
     source: "personal",
-    title: "Indian Quotes API",
+    title: "Haystack Diagnostics Engine",
+  },
+  {
+    category: "Tool",
+    date: {
+      month: "December",
+      year: 2025,
+    },
+    description:
+      "Framework-dependent quantization stability audit across 14,154 images, restoring MobileNetV3 INT8 accuracy to 82.5% on Jetson Nano at 54.5 FPS (Research Preprint).",
+    featured: true,
+    links: {
+      github: "https://github.com/rautaditya2606/wheat_detection",
+    },
+    slug: "agricultural-edge-ai-quantization",
+    source: "personal",
+    title: "Agricultural Edge AI Quantization",
   },
   {
     category: "Product",
@@ -146,82 +80,49 @@ export const PROJECTS = [
       year: 2026,
     },
     description:
-      "Generate posts for your socials with templates from popular Instagram pages in a few clicks.",
+      "End-to-end wheat disease classification system using ConvNeXt-Tiny (88.46% accuracy, 0.9896 AUC) with INT8 ONNX quantization and human-in-the-loop feedback.",
+    featured: true,
     links: {
-      github: "https://github.com/Aniket-508/instagram-posts-generator",
-      website: "https://instagram-posts-generator.vercel.app/",
+      github: "https://github.com/rautaditya2606/wheat_detection",
     },
-    slug: "instagram-posts-generator",
+    slug: "wheat-disease-intelligence",
     source: "personal",
-    title: "IG Posts Generator",
+    title: "Wheat Disease Intelligence Platform",
   },
+  {
+    category: "Product",
+    date: {
+      month: "November",
+      year: 2025,
+    },
+    description:
+      "Real-time retail sales prediction engine powered by ONNX-quantized XGBoost, hybrid Apache Kafka streaming (SSL + REST proxy fallback), and 1 Hz continuous observability.",
+    featured: true,
+    links: {
+      github: "https://github.com/rautaditya2606/Rossman-Deployed",
+      website: "https://rossman-deployed-xxk0.onrender.com",
+    },
+    slug: "rossman-sales-prediction",
+    source: "personal",
+    title: "Rossmann Sales Prediction",
+  },
+
+  // Open Source Contributions (8 Haystack + 1 LlamaIndex)
   {
     category: "Open Source",
     date: {
-      month: "March",
+      month: "June",
       year: 2026,
     },
     description:
-      "A template for building and publishing your own custom shadcn registry components.",
+      "Prevented DocumentLanguageClassifier crashes on blob-only documents by replacing uncaught TypeError with graceful unmatched fallback.",
     featured: true,
     links: {
-      github: "https://github.com/shadcn-labs/startercn",
-      website: "https://startercn.vercel.app",
+      github: "https://github.com/deepset-ai/haystack/pull/11419",
     },
-    slug: "startercn",
-    source: "shadcn-labs",
-    title: "startercn",
-  },
-  {
-    category: "Open Source",
-    date: {
-      month: "March",
-      year: 2026,
-    },
-    description:
-      "Ready-to-use, customizable terminal UI components for React, built on Ink and OpenTUI.",
-    featured: true,
-    links: {
-      github: "https://github.com/shadcn-labs/termcn",
-      website: "https://termcn.vercel.app",
-    },
-    slug: "termcn",
-    source: "shadcn-labs",
-    title: "termcn",
-  },
-  {
-    category: "Open Source",
-    date: {
-      month: "April",
-      year: 2026,
-    },
-    description:
-      "Ready-to-use, customizable video components for React, built on Editframe.",
-    featured: true,
-    links: {
-      github: "https://github.com/shadcn-labs/framecn",
-      website: "https://framecn.vercel.app",
-    },
-    slug: "framecn",
-    source: "shadcn-labs",
-    title: "framecn",
-  },
-  {
-    category: "Open Source",
-    date: {
-      month: "May",
-      year: 2026,
-    },
-    description:
-      "Ready-to-use, customizable Open Graph image components for React, built on Satori.",
-    featured: true,
-    links: {
-      github: "https://github.com/shadcn-labs/ogimagecn",
-      website: "https://ogimagecn.vercel.app",
-    },
-    slug: "ogimagecn",
-    source: "shadcn-labs",
-    title: "ogimagecn",
+    slug: "haystack-document-language-classifier",
+    source: "open-source",
+    title: "DocumentLanguageClassifier Blob Fallback (PR #11419)",
   },
   {
     category: "Open Source",
@@ -229,45 +130,126 @@ export const PROJECTS = [
       month: "June",
       year: 2026,
     },
-    description: "Production-ready AI agent recipes, built on Eve and Flue",
+    description:
+      "Fixed silent split_idx_start metadata corruption in RecursiveDocumentSplitter when split_unit='word'/'token' with overlap enabled.",
     featured: true,
     links: {
-      github: "https://github.com/shadcn-labs/agentcn",
-      website: "https://agentcn.vercel.app",
+      github: "https://github.com/deepset-ai/haystack/pull/11711",
     },
-    slug: "agentcn",
-    source: "shadcn-labs",
-    title: "agentcn",
+    slug: "haystack-recursive-splitter-idx",
+    source: "open-source",
+    title: "RecursiveDocumentSplitter Metadata Fix (PR #11711)",
   },
   {
     category: "Open Source",
     date: {
-      month: "July",
+      month: "June",
       year: 2026,
     },
     description:
-      "Ready-to-use, customizable email components for React, built on React Email.",
+      "Fixed split_overlap being silently ignored on no-separator fallback path in RecursiveDocumentSplitter.",
+    featured: true,
     links: {
-      github: "https://github.com/shadcn-labs/emailcn",
-      website: "https://emailcn.vercel.app",
+      github: "https://github.com/deepset-ai/haystack/pull/11768",
     },
-    slug: "emailcn",
-    source: "shadcn-labs",
-    title: "emailcn",
+    slug: "haystack-recursive-splitter-overlap",
+    source: "open-source",
+    title: "RecursiveDocumentSplitter Overlap Fallback (PR #11768)",
   },
   {
     category: "Open Source",
     date: {
-      month: "August",
+      month: "June",
       year: 2026,
     },
-    description: "PDF components for React, built on Takumi and Forme.",
+    description:
+      "Preserved fallback chains in FallbackChatGenerator lost during to_dict() serialization roundtrip.",
+    featured: true,
     links: {
-      github: "https://github.com/shadcn-labs/pdfcn",
-      website: "https://pdfcn.vercel.app",
+      github: "https://github.com/deepset-ai/haystack/pull/11847",
     },
-    slug: "pdfcn",
-    source: "shadcn-labs",
-    title: "pdfcn",
+    slug: "haystack-fallback-chat-generator",
+    source: "open-source",
+    title: "FallbackChatGenerator Serialization Fix (PR #11847)",
+  },
+  {
+    category: "Open Source",
+    date: {
+      month: "June",
+      year: 2026,
+    },
+    description:
+      "Restored split_idx_start metadata consistency in EmbeddingBasedDocumentSplitter across all split configurations.",
+    featured: true,
+    links: {
+      github: "https://github.com/deepset-ai/haystack/pull/11987",
+    },
+    slug: "haystack-embedding-splitter-idx",
+    source: "open-source",
+    title: "EmbeddingBasedDocumentSplitter Consistency (PR #11987)",
+  },
+  {
+    category: "Open Source",
+    date: {
+      month: "June",
+      year: 2026,
+    },
+    description:
+      "Fixed auto-variadic socket flag not reset on component removal in PipelineBase.remove_component.",
+    featured: true,
+    links: {
+      github: "https://github.com/deepset-ai/haystack/pull/12206",
+    },
+    slug: "haystack-pipeline-variadic-socket",
+    source: "open-source",
+    title: "PipelineBase Auto-Variadic Socket Reset (PR #12206)",
+  },
+  {
+    category: "Open Source",
+    date: {
+      month: "June",
+      year: 2026,
+    },
+    description:
+      "Corrected inverted isinstance check in PipelineBase.__eq__ that raised unhandled AssertionError when comparing to non-Pipeline types.",
+    featured: true,
+    links: {
+      github: "https://github.com/deepset-ai/haystack/pull/12387",
+    },
+    slug: "haystack-pipeline-equality-check",
+    source: "open-source",
+    title: "PipelineBase.__eq__ Inverted Type Check (PR #12387)",
+  },
+  {
+    category: "Open Source",
+    date: {
+      month: "June",
+      year: 2026,
+    },
+    description:
+      "Fixed AzureOpenAIChatGenerator.to_dict() crash when response_format is a plain dict by adding missing isinstance type guard before issubclass call.",
+    featured: true,
+    links: {
+      github: "https://github.com/deepset-ai/haystack/pull/12407",
+    },
+    slug: "haystack-azure-chat-generator-dict",
+    source: "open-source",
+    title: "AzureOpenAIChatGenerator Type Guard (PR #12407)",
+  },
+  {
+    category: "Open Source",
+    date: {
+      month: "June",
+      year: 2026,
+    },
+    description:
+      "Corrected stopword removal and token boundary preservation in SemanticDoubleMergingSplitterNodeParser.",
+    featured: true,
+    links: {
+      github: "https://github.com/run-llama/llama_index/pull/22167",
+    },
+    slug: "llamaindex-double-merging-splitter",
+    source: "open-source",
+    title: "SemanticDoubleMergingSplitter Stopword Fix (PR #22167)",
   },
 ] satisfies readonly Project[];

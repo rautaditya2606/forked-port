@@ -1,0 +1,29 @@
+---
+slug: wheat-disease-intelligence
+---
+
+## Overview
+
+Wheat Disease Intelligence Platform is an end-to-end computer vision and LLM recommendation system built to detect, classify, and provide actionable remediation for agricultural crop diseases.
+
+## Key Features
+
+- **High-Accuracy Classification:** Powered by ConvNeXt-Tiny achieving **88.46% accuracy** and **0.9896 AUC** on multi-class wheat disease detection benchmarks.
+- **Interpretable Predictions:** Integrated CLIP-based input validation to filter out non-wheat images and OpenCV disease localization overlays for visual explainability.
+- **Quantized Edge Deployment:** Optimized inference using INT8 ONNX quantization, slashing model size by 75% (109MB → 27MB) with only 0.18% accuracy drop and achieving **65ms CPU inference latency**.
+- **Human-in-the-Loop Feedback:** Engineered feedback pipeline backed by Neon PostgreSQL and Cloudinary, incorporating GPT-4o mini recommendations conditioned on local weather and agricultural context.
+- **Production Architecture:** Fully containerized full-stack deployment with FastAPI backend and Docker.
+
+## Tech stack
+
+<TechStack
+  items={[
+    "PyTorch",
+    "ONNX Runtime",
+    "FastAPI",
+    "Docker",
+    "OpenCV",
+    "PostgreSQL",
+    "Python",
+  ]}
+/>

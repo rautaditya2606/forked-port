@@ -1,3 +1,6 @@
+import "server-only";
+import { unstable_cache } from "next/cache";
+
 import type { GlimpseData } from "./types";
 
 const TITLE_REGEX = /<title[^>]*>([^<]+)<\/title>/u;
@@ -7,11 +10,22 @@ const OG_DESCRIPTION_REGEX =
   /<meta[^>]*property="og:description"[^>]*content="([^"]+)"/u;
 const OG_IMAGE_REGEX = /<meta[^>]*property="og:image"[^>]*content="([^"]+)"/u;
 
+const GH_REPO_REGEX =
+  /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/?$/u;
+const GH_PR_REGEX =
+  /^https?:\/\/(?:www\.)?github\.com\/([^/]+)\/([^/]+)\/pull\/(\d+)/u;
+
 const EMPTY_GLIMPSE: GlimpseData = {
   description: null,
   image: null,
   title: null,
 };
+
+const FETCH_TIMEOUT_MS = 1500;
+// 7 days
+const CACHE_REVALIDATE_SECONDS = 604_800;
+
+const memoryCache = new Map<string, Promise<GlimpseData>>();
 
 const resolveUrl = (baseUrl: string, relativeUrl: string): string => {
   try {
@@ -24,11 +38,45 @@ const resolveUrl = (baseUrl: string, relativeUrl: string): string => {
 const extractContent = (match: RegExpMatchArray | null): string | null =>
   match?.at(1) ?? null;
 
-export const glimpse = async (url: string): Promise<GlimpseData> => {
+const resolveFastGlimpse = (url: string): GlimpseData | null => {
+  // LinkedIn blocks automated crawlers with HTTP 999
+  if (url.includes("linkedin.com")) {
+    return EMPTY_GLIMPSE;
+  }
+
+  // Instant deterministic GitHub OpenGraph image resolution (0ms, no network scraping required)
+  const repoMatch = url.match(GH_REPO_REGEX);
+  if (repoMatch) {
+    const [, owner, repo] = repoMatch;
+    return {
+      description: null,
+      image: `https://opengraph.githubassets.com/1/${owner}/${repo}`,
+      title: `${owner}/${repo} · GitHub`,
+    };
+  }
+
+  const prMatch = url.match(GH_PR_REGEX);
+  if (prMatch) {
+    const [, owner, repo, pr] = prMatch;
+    return {
+      description: null,
+      image: `https://opengraph.githubassets.com/1/${owner}/${repo}/pull/${pr}`,
+      title: `${owner}/${repo}#${pr} · GitHub`,
+    };
+  }
+
+  return null;
+};
+
+const fetchGlimpse = async (url: string): Promise<GlimpseData> => {
+  const fast = resolveFastGlimpse(url);
+  if (fast) {
+    return fast;
+  }
+
   try {
     const controller = new AbortController();
-    // 5 second timeout
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
     const response = await fetch(url, {
       headers: { "User-Agent": "Mozilla/5.0 (compatible; LinkPreview/1.0)" },
@@ -58,9 +106,37 @@ export const glimpse = async (url: string): Promise<GlimpseData> => {
       title: extractContent(titleMatch),
     };
   } catch {
-    // Silently handle fetch errors (network issues, timeouts, invalid URLs, etc.)
+    // Silently handle fetch errors and cache empty result to prevent repeated timeouts
     return EMPTY_GLIMPSE;
   }
+};
+
+const getPersistentGlimpse = unstable_cache(
+  async (url: string): Promise<GlimpseData> => await fetchGlimpse(url),
+  ["glimpse-preview-v2"],
+  { revalidate: CACHE_REVALIDATE_SECONDS }
+);
+
+export const glimpse = async (url: string): Promise<GlimpseData> => {
+  if (!url) {
+    return EMPTY_GLIMPSE;
+  }
+
+  const cached = memoryCache.get(url);
+  if (cached) {
+    return await cached;
+  }
+
+  const promise = (async () => {
+    try {
+      return await getPersistentGlimpse(url);
+    } catch {
+      return await fetchGlimpse(url);
+    }
+  })();
+
+  memoryCache.set(url, promise);
+  return await promise;
 };
 
 export const prefetchGlimpses = async (

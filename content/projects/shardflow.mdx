@@ -1,0 +1,43 @@
+---
+slug: shardflow
+---
+
+## Overview
+
+**ShardFlow** is a high-performance, general-purpose distributed LLM inference framework that partitions any Hugging Face transformer across N heterogeneous GPU machines (such as free Kaggle/Colab notebooks, rented cloud GPUs, or local consumer rigs).
+
+ShardFlow combines **neural speculative decoding (K=8 on dual-GPU nodes)**, **zero-copy binary tensor serialization**, and **high-throughput AWS EC2 TCP relay transport** to overcome wide-area network latency (WAN) and deliver interactive LLM inference speeds across separate cloud data centers.
+
+## Empirical Benchmark Results
+
+| Metric                        |                       Non-Speculative Baseline (K=0)                       | ShardFlow Speculative (K=8, CUDA Graphs) |       Improvement       |
+| ----------------------------- | :------------------------------------------------------------------------: | :--------------------------------------: | :---------------------: |
+| **Peak Throughput**           |                                  4.92 TPS                                  |              **28.10 TPS**               | **5.71x** (12.4x vs v1) |
+| **Average Throughput**        |                                  4.92 TPS                                  |              **20.31 TPS**               | **4.13x** (8.9x vs v1)  |
+| **Tokens per WAN Round-Trip** |                               1.00 tok/round                               |            **4.07 tok/round**            |        **4.07x**        |
+| **Draft Model Accept Rate**   |                                    N/A                                     |      **65.0%** (Peak) / 42.9% (Avg)      |            -            |
+| **Cluster Setup**             | 2x Free Kaggle T4 Instances + AWS EC2 `t3.micro` Relay (`us-east-2` Ohio)  |                                          |                         |
+| **Target / Draft Models**     | `Qwen2.5-7B-Instruct` (FP16) / `Qwen2.5-0.5B-Instruct` (FP16, StaticCache) |                                          |                         |
+| **Network Link**              |      Public Internet WAN (Iowa &harr; Ohio &harr; Oregon, ~86 ms RTT)      |                                          |                         |
+
+## Key Technical Innovations
+
+- **Dual-GPU Pipelined Draft Generation:** On Node 0 (2x T4 GPUs), placed the 7B target slice on `cuda:0` (7.64 GB VRAM) and the 0.5B draft model (`Qwen2.5-0.5B-Instruct`) on `cuda:1` (0.98 GB VRAM), eliminating VRAM contention and CPU python wrapper overhead.
+- **Exact KV Cache Synchronization & Rollback:** Aligned `DynamicCache` states between draft and target models across WAN. When Node 1 verifies candidate tokens and accepts M tokens, both caches are rolled back to the exact same committed length, eliminating context drift and ensuring up to **58% draft acceptance**.
+- **AWS EC2 Zero-Copy TCP Relay Bridge:** Built a low-latency Rust TCP relay (`t3.micro`, Ohio) that bridges NAT firewalls across cloud notebook environments. Binary activations are serialized as raw FP16 buffers with 8-byte length prefixing (`>Q`), cutting CPU serialization time to under 1.5 ms.
+- **Zero-RAM Meta-Device Model Slicing:** Instantiates model architectures on PyTorch's `meta` device in **0.00s with 0 MB CPU RAM overhead**, streaming safetensors directly into GPU VRAM.
+- **OpenAI-Compatible API:** Exposes standard `POST /v1/chat/completions` streaming endpoints for seamless client and agent integration.
+
+## Tech stack
+
+<TechStack
+  items={[
+    "Python",
+    "PyTorch",
+    "Hugging Face",
+    "Docker",
+    "FastAPI",
+    "Linux",
+    "Git",
+  ]}
+/>

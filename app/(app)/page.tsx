@@ -1,6 +1,5 @@
 import { AboutSection } from "@/components/about/section";
 import { ContactSection } from "@/components/contact/section";
-import { CraftSection } from "@/components/craft/section";
 import { ExperienceSection } from "@/components/experience/section";
 import { ProjectSection } from "@/components/project/section";
 import { ROUTES } from "@/constants/routes";
@@ -11,7 +10,6 @@ const MainView = () => (
     <BreadcrumbJsonLd items={[{ name: "Home", path: ROUTES.HOME }]} />
     <AboutSection />
     <ProjectSection />
-    <CraftSection />
     <ExperienceSection />
     <ContactSection />
   </>

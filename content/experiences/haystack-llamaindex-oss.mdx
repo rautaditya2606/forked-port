@@ -1,0 +1,22 @@
+---
+slug: haystack-llamaindex-oss
+---
+
+## Highlights
+
+- **deepset-ai/Haystack:**
+  - **DocumentLanguageClassifier (PR #11419):** Prevented crashes on blob-only documents by replacing uncaught `TypeError` with graceful unmatched fallback.
+  - **RecursiveDocumentSplitter (PR #11711):** Fixed silent `split_idx_start` metadata corruption when `split_unit="word"/"token"` with overlap enabled.
+  - **RecursiveDocumentSplitter (PR #11768):** Fixed `split_overlap` being silently ignored on no-separator fallback path.
+  - **FallbackChatGenerator (PR #11847):** Preserved fallback chains in `FallbackChatGenerator` lost during `to_dict()` serialization roundtrip.
+  - **EmbeddingBasedDocumentSplitter (PR #11987):** Restored `split_idx_start` metadata consistency across all split configurations.
+  - **PipelineBase.remove_component (PR #12206):** Fixed auto-variadic socket flag not reset on component removal.
+  - **PipelineBase.**eq** (PR #12387):** Corrected inverted `isinstance` check that raised unhandled `AssertionError` when comparing to non-Pipeline types.
+  - **AzureOpenAIChatGenerator (PR #12407):** Fixed `to_dict()` crash when `response_format` is a plain dict by adding missing `isinstance` type guard before `issubclass` call.
+
+- **run-llama/LlamaIndex:**
+  - **SemanticDoubleMergingSplitterNodeParser (PR #22167):** Corrected stopword removal and token boundary preservation in document splitters.
+
+## Tech stack
+
+<TechStack items={["Python", "Haystack", "LlamaIndex", "Git", "Linux"]} />

@@ -15,13 +15,13 @@ Ensure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Aniket-508/aniketpawar.com.git
+git clone https://github.com/rautaditya2606/portfolio.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd aniketpawar.com
+cd portfolio
 ```
 
 3. Install dependencies:

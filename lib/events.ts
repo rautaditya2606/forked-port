@@ -5,7 +5,6 @@ import { Clarity, isClarityReady } from "@/lib/clarity";
 const eventNames = [
   "contact_link_click",
   "content_share",
-  "craft_detail_click",
   "experience_detail_click",
   "external_link_click",
   "haptics_toggle",
@@ -13,7 +12,6 @@ const eventNames = [
   "navbar_home_click",
   "navbar_section_click",
   "project_detail_click",
-  "resume_click",
   "schedule_meet_click",
   "send_email_click",
   "section_anchor_click",
@@ -40,7 +38,6 @@ export type Event = z.infer<typeof eventSchema>;
 export type EventName = Event["name"];
 export type Section =
   | "projects"
-  | "crafts"
   | "experience"
   | "stack"
   | "favorites"
@@ -67,16 +64,6 @@ export const trackEvent = (input: Event): void => {
     Clarity.setTag(`${event.name}.${key}`, String(value));
   }
 };
-
-export const trackCraftDetailClick = (
-  slug: string,
-  title: string,
-  location: "home" | "listing"
-) =>
-  trackEvent({
-    name: "craft_detail_click",
-    properties: { location, slug, title },
-  });
 
 export const trackExperienceDetailClick = (
   slug: string,

@@ -125,8 +125,27 @@ const ProjectItem = ({
 }: ProjectItemProps) => {
   const isGrid = variant === "grid";
   const image = previews?.[links?.website ?? ""]?.image ?? "";
+  const isExternalPr = Boolean(links.github?.includes("/pull/"));
 
-  const titleLink = (
+  const titleLink = isExternalPr ? (
+    <a
+      href={links.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline underline-offset-4"
+      onClick={() =>
+        trackExternalLinkClick({
+          context: "project_item",
+          link_type: "github_pr",
+          slug,
+          title,
+          url: links.github ?? "",
+        })
+      }
+    >
+      {title}
+    </a>
+  ) : (
     <Link
       href={`${ROUTES.PROJECTS}/${slug}`}
       className="hover:underline underline-offset-4"
@@ -174,7 +193,7 @@ const ProjectItem = ({
           {links.github && (
             <ProjectLink
               href={links.github}
-              label="GitHub"
+              label={isExternalPr ? "PR" : "GitHub"}
               icon={<Icons.github />}
               isGrid={isGrid}
               preview={previews?.[links.github]}

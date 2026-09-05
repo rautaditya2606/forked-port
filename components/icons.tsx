@@ -775,4 +775,125 @@ export const Icons = {
       />
     </svg>
   ),
+  anthropic: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M13.827 3.5h3.603L24 20.5h-3.603l-1.89-4.32H9.893L8.003 20.5H4.4L10.97 3.5h2.857zm2.43 9.88-2.614-5.973-2.613 5.973h5.227z" />
+    </svg>
+  ),
+  chroma: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <circle cx="12" cy="7" r="4" />
+      <circle cx="6" cy="17" r="4" />
+      <circle cx="18" cy="17" r="4" />
+    </svg>
+  ),
+  fastapi: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-.88 4.8h1.76l-3.52 7.2h3.52L8.96 19.2l6.08-8.4h-3.52l3.2-6z" />
+    </svg>
+  ),
+  flask: (props: IconProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M9 3h6M10 3v6l-4.5 9A2 2 0 0 0 7.3 21h9.4a2 2 0 0 0 1.8-3L14 9V3" />
+    </svg>
+  ),
+  haystack: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M4 4h4v16H4zm6 4h4v12h-4zm6-6h4v18h-4z" />
+    </svg>
+  ),
+  huggingface: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-4 7.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5S6.5 11.83 6.5 11s.67-1.5 1.5-1.5zm8 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-4 8c-2.33 0-4.31-1.46-5.11-3.5h10.22c-.8 2.04-2.78 3.5-5.11 3.5z" />
+    </svg>
+  ),
+  langchain: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M9 5a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3h-2v2h2a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5h-6a5 5 0 0 0-5 5v2h2V5zm6 14a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3h2v-2H6a5 5 0 0 0-5 5v4a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5v-2h-2v2z" />
+    </svg>
+  ),
+  linux: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12.012 0c-3.15 0-5.71 2.56-5.71 5.71 0 1.09.31 2.11.85 2.98C5.242 9.68 4 11.69 4 14c0 3.31 2.69 6 6 6 .34 0 .67-.03 1-.09v1.09c0 1.66 1.34 3 3 3s3-1.34 3-3v-1.09c.33.06.66.09 1 .09 3.31 0 6-2.69 6-6 0-2.31-1.242-4.32-3.152-5.31.54-.87.852-1.89.852-2.98C20.69 2.56 18.13 0 14.98 0h-2.968z" />
+    </svg>
+  ),
+  llamaindex: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.2L18 8v8l-6 3.8L6 16V8l6-3.8zM11 9h2v6h-2z" />
+    </svg>
+  ),
+  opencv: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2zm-6 9a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm12 0a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+    </svg>
+  ),
+  openai: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zm-1.22-9.61a4.476 4.476 0 0 1 2.34-1.974V12.2a.78.78 0 0 0 .388.681l5.844 3.37-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.38 8.694zm15.778 3.018l-5.844-3.37 2.02-1.168a.076.076 0 0 1 .071 0l4.83 2.79a4.494 4.494 0 0 1-.681 8.019v-5.59a.79.79 0 0 0-.396-.681zm2.44-3.565l-.141-.085-4.783-2.759a.775.775 0 0 0-.78 0L9.832 9.072V6.74a.08.08 0 0 1 .033-.062l4.84-2.795a4.504 4.504 0 0 1 6.133 4.385zM8.332 15.68l-2.02-1.168a.071.071 0 0 1-.038-.052V8.877a4.494 4.494 0 0 1 7.37-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.392.681v6.737zm1.176-2.508l2.492-1.439 2.492 1.439v2.878l-2.492 1.439-2.492-1.439v-2.878z" />
+    </svg>
+  ),
+  pinecone: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2l3 6h-6l3-6zm-4 7l3 6H5l3-6zm8 0l3 6h-6l3-6zm-4 7l3 6H9l3-6z" />
+    </svg>
+  ),
+  pytorch: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12.001 0a11.996 11.996 0 0 0-8.485 20.485l1.414-1.414A9.996 9.996 0 1 1 12 22a9.96 9.96 0 0 1-7.071-2.929l-1.414 1.414A11.997 11.997 0 1 0 12 0zm3.535 5.05a1.5 1.5 0 1 1-2.121 2.122 1.5 1.5 0 0 1 2.121-2.122zm-3.535 4.95a3.5 3.5 0 0 0-3.5 3.5c0 1.258.665 2.36 1.664 2.973L9 18l2.5-1.5a3.5 3.5 0 0 0 .5.036 3.5 3.5 0 0 0 0-7z" />
+    </svg>
+  ),
+  qdrant: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2L3 7.5v9L12 22l9-5.5v-9L12 2zm0 3.3l6 3.7v6l-6 3.7-6-3.7v-6l6-3.7z" />
+    </svg>
+  ),
+  scikitlearn: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 4a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-6-6 6 6 0 0 1 6-6z" />
+    </svg>
+  ),
+  aws: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-2h2v2zm0-4h-2V7h2v5.5z" />
+    </svg>
+  ),
+  kafka: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-6 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm12 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm-6 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+    </svg>
+  ),
+  rust: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1zm0 2a9 9 0 0 1 7.23 3.65l-2.07 1.2A6.8 6.8 0 0 0 12 5.2a6.8 6.8 0 0 0-5.16 2.65l-2.07-1.2A9 9 0 0 1 12 3zm-9 9a9 9 0 0 1 .45-2.81l2.25.75A6.8 6.8 0 0 0 5.2 12a6.8 6.8 0 0 0 .5 2.06l-2.25.75A9 9 0 0 1 3 12zm9 9a9 9 0 0 1-7.23-3.65l2.07-1.2A6.8 6.8 0 0 0 12 18.8a6.8 6.8 0 0 0 5.16-2.65l2.07 1.2A9 9 0 0 1 12 21zm9-9a9 9 0 0 1-.45 2.81l-2.25-.75A6.8 6.8 0 0 0 18.8 12a6.8 6.8 0 0 0-.5-2.06l2.25-.75A9 9 0 0 1 21 12z" />
+    </svg>
+  ),
+  terminal: (props: IconProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" y1="19" x2="20" y2="19" />
+    </svg>
+  ),
+  weaviate: (props: IconProps) => (
+    <svg viewBox="0 0 24 24" aria-hidden fill="currentColor" {...props}>
+      <path d="M2.5 5.5h4l3.5 13h-4L2.5 5.5zm7.5 0h4l3.5 13h-4L10 5.5zm7.5 0h4L21.5 18.5h-4L17.5 5.5z" />
+    </svg>
+  ),
 };

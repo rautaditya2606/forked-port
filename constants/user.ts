@@ -7,16 +7,15 @@ const [currentExperience] = EXPERIENCES;
 export const USER = {
   address: {
     country: "India",
-    locality: "Mumbai",
+    locality: "Pune",
   },
-  avatar:
-    "https://ik.imagekit.io/2oajjadqkz/profile.jpg?updatedAt=1770631384305",
+  avatar: "https://github.com/rautaditya2606.png",
   company: currentExperience.experienceOrg.name,
   email: LINK.EMAIL,
-  firstName: "Aniket",
+  firstName: "Aditya",
   jobTitle: currentExperience.experienceTitle,
-  lastName: "Pawar",
-  username: "aniket-pawar",
+  lastName: "Raut",
+  username: "rautaditya2606",
   website: getBaseUrl(),
 } as const;
 

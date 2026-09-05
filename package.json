@@ -1,24 +1,24 @@
 {
-  "name": "aniketpawar.com",
+  "name": "adityaraut.com",
   "version": "0.1.0",
   "private": true,
-  "description": "A minimal dev portfolio and shadcn registry.",
-  "homepage": "https://aniketpawar.com",
+  "description": "Portfolio of Aditya Raut - GenAI Engineer & ML Systems Builder.",
+  "homepage": "https://adityaraut.com",
   "license": "MIT",
   "author": {
-    "name": "Aniket Pawar",
-    "email": "pawaraniket508@gmail.com",
-    "url": "https://github.com/Aniket-508"
+    "name": "Aditya Raut",
+    "email": "rautaditya2606@gmail.com",
+    "url": "https://github.com/rautaditya2606"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aniket-508/aniketpawar.com.git"
+    "url": "git+https://github.com/rautaditya2606/portfolio.git"
   },
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm registry:build && next build",
-    "registry:build": "npx tsx scripts/build-registry.ts && shadcn build",
+    "build": "npm run registry:build && next build",
+    "registry:build": "npx --yes tsx scripts/build-registry.ts && shadcn build",
     "start": "next start",
     "check": "ultracite check",
     "fix": "ultracite fix",

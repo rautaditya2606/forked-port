@@ -12,8 +12,8 @@ import { getProjectMdxEntry } from "@/lib/content/projects";
 import { tocFromMdast } from "@/lib/content/toc";
 import {
   formatProjectDate,
+  getInternalProjectSlugs,
   getProjectBySlug,
-  getProjectSlugs,
 } from "@/lib/projects";
 import { BreadcrumbJsonLd, projectsBreadcrumbs } from "@/seo/json-ld";
 import { createMetadata } from "@/seo/metadata";
@@ -24,7 +24,7 @@ interface ProjectPageProps {
 }
 
 export const generateStaticParams = () =>
-  getProjectSlugs().map((slug) => ({ slug }));
+  getInternalProjectSlugs().map((slug) => ({ slug }));
 
 export const generateMetadata = async ({
   params,

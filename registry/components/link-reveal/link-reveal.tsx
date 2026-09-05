@@ -61,6 +61,7 @@ export const LinkReveal = ({
       >
         {icon ??
           (favicon && (
+            // oxlint-disable-next-line next/no-img-element
             // biome-ignore lint/performance/noImgElement: registry component, favicon from external source
             <img
               alt=""

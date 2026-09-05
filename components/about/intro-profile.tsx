@@ -15,25 +15,15 @@ import { UserAvatar } from "@/components/user-avatar";
 import { SITE } from "@/constants/site";
 import { useLockBodyScroll } from "@/hooks/use-lock-body-scroll";
 
-const GREETINGS = [
-  "Hello",
-  "Bonjour",
-  "स्वागत है",
-  "नमस्कार",
-  "Ciao",
-  "Olá",
-  "おい",
-  "Hallå",
-  "Guten tag",
-] as const;
-const GREETING_DURATION_MS = 180;
-const IDENTITY_HOLD_MS = 600;
-const PROFILE_LAYOUT_DURATION_SECONDS = 0.65;
-const CURTAIN_DELAY_SECONDS = 0.78;
-const CURTAIN_DURATION_SECONDS = 0.28;
-const DETAIL_DELAY_SECONDS = 0.58;
-const DETAIL_DURATION_SECONDS = 0.18;
-const ROLE_STAGGER_SECONDS = 0.06;
+const GREETINGS = ["Hello", "स्वागत है", "Bonjour", "Hallå"] as const;
+const GREETING_DURATION_MS = 90;
+const IDENTITY_HOLD_MS = 180;
+const PROFILE_LAYOUT_DURATION_SECONDS = 0.35;
+const CURTAIN_DELAY_SECONDS = 0.3;
+const CURTAIN_DURATION_SECONDS = 0.2;
+const DETAIL_DELAY_SECONDS = 0.2;
+const DETAIL_DURATION_SECONDS = 0.15;
+const ROLE_STAGGER_SECONDS = 0.04;
 const PROFILE_AVATAR_LAYOUT_ID = "home-profile-avatar";
 const PROFILE_NAME_LAYOUT_ID = "home-profile-name";
 
@@ -95,7 +85,7 @@ const ProfileHeader = ({ shouldAnimateDetails }: ProfileHeaderProps) => (
               : undefined
           }
         >
-          Aniket
+          Aditya
         </motion.span>{" "}
         <motion.span
           className="inline-block"
@@ -107,7 +97,7 @@ const ProfileHeader = ({ shouldAnimateDetails }: ProfileHeaderProps) => (
           animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
           transition={detailTransition}
         >
-          Pawar
+          Raut
         </motion.span>
       </Title>
       <motion.p
@@ -120,7 +110,7 @@ const ProfileHeader = ({ shouldAnimateDetails }: ProfileHeaderProps) => (
         transition={roleTransition}
         className="text-muted-foreground mt-1 text-base leading-snug font-normal"
       >
-        Frontend Engineer
+        GenAI & ML Systems Engineer
       </motion.p>
     </div>
   </div>
@@ -234,7 +224,7 @@ const IntroProfile = ({ mode }: IntroProfileProps) => {
                 className="inline-block font-semibold"
                 transition={{ layout: profileLayoutTransition }}
               >
-                Aniket
+                Aditya
               </motion.span>
             </div>
           ) : null}

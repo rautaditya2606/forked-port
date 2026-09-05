@@ -1,0 +1,31 @@
+---
+slug: rossman-sales-prediction
+---
+
+## Overview
+
+**Rossmann Sales Prediction** is an end-to-end machine learning system and real-time streaming pipeline designed to predict daily store revenue across **1,115 Rossmann store locations** (trained on ~1 million records from the Kaggle dataset).
+
+The platform features an ONNX-optimized gradient boosting model, automated feature engineering, real-time message broadcasting to an Aiven Apache Kafka cluster with dual fallback strategies, and continuous live observability via background synthetic workers.
+
+## Key Features
+
+- **ONNX-Quantized Inference:** Converted the trained XGBoost regression model pipeline (`StandardScaler` + `OneHotEncoder`) to **ONNX Runtime**, cutting memory footprint and optimizing latency for resource-constrained cloud containers on Render.
+- **Hybrid Kafka Streaming Layer:** Engineered an event publisher that connects directly via SASL_SSL / SSL to Aiven Kafka clusters with automatic failover to the Kafka REST Proxy, ensuring reliable stream delivery across cloud environments.
+- **Dynamic Feature Engineering:** Enriches incoming store requests dynamically using historical metadata lookup tables (`StoreType`, `Assortment`, `CompetitionDistance`, `Promo2Open`, `WeekOfYear`).
+- **Continuous 1 Hz Observability Loop:** Integrated an APScheduler background worker generating 1 synthetic prediction per second with realistic store distributions to keep the streaming pipeline active and observable via `/stats`.
+- **Full-Stack Deployment:** Brutalist web UI with real-time prediction feedback and REST API endpoints containerized with Docker and deployed on Render.
+
+## Tech stack
+
+<TechStack
+  items={[
+    "Python",
+    "ONNX Runtime",
+    "XGBoost",
+    "Flask",
+    "Docker",
+    "PostgreSQL",
+    "Linux",
+  ]}
+/>
